@@ -1,0 +1,35 @@
+@use "reset";
+@use "global";
+@import "responsive";
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  height: 100%;
+  width: 100%;
+
+  section {
+    margin: 0% 5%;
+  }
+  .first-section {
+    margin-top: 10%;
+    background-color: hsl(31, 77%, 52%);
+    height: 450px;
+  }
+  .second-section {
+    background-color: hsl(184, 100%, 22%);
+    height: 450px;
+  }
+  .third-section {
+    background-color: hsl(179, 100%, 13%);
+    height: 450px;
+    margin-bottom: 10%;
+  }
+}
