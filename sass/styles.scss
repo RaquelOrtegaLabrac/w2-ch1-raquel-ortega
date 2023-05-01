@@ -1,0 +1,82 @@
+@use "reset";
+@use "global";
+@import "responsive";
+
+@function rem($pxValue) {
+  @return #{calc(stripUnit($pxValue) / stripUnit(16))}rem;
+}
+
+@function rem($value) {
+  $remValue: calc($value / 16) + rem;
+  @return $remValue;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr);
+  grid-column-gap: 0px;
+  height: 100%;
+  width: 100%;
+  @include desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+    .first-section {
+      grid-column: 1;
+    }
+    .second-section {
+      grid-column: 2;
+    }
+    .third-section {
+      grid-column: 3;
+    }
+  }
+
+  section {
+    margin: 0% 5%;
+
+    h2 {
+      text-transform: uppercase;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-family: "Big Shoulders Display", cursive;
+      font-size: rem(30);
+      color: hsl(0, 0%, 95%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    p {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      font-family: "Lexend Deca", sans-serif;
+      color: hsl(0, 0%, 95%);
+      font-size: rem(16);
+      padding: 40px;
+    }
+    img {
+      padding: 40px;
+    }
+  }
+  .first-section {
+    margin-top: 10%;
+    background-color: hsl(31, 77%, 52%);
+    height: 450px;
+  }
+  .second-section {
+    background-color: hsl(184, 100%, 22%);
+    height: 450px;
+  }
+  .third-section {
+    background-color: hsl(179, 100%, 13%);
+    height: 450px;
+    margin-bottom: 10%;
+  }
+}
